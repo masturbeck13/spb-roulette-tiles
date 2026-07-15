@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "productName": "Карта SPb Roulette",
+  "basemapVersion": "2026.07.15.3",
+  "placesVersion": "not-published",
+  "generatedAt": "2026-07-15T18:07:50.778Z",
+  "sourceSnapshotAt": "2026-07-14T20:20:59.000Z",
+  "catalogVerifiedAt": null,
+  "files": [
+    {
+      "id": "basemap",
+      "version": "2026.07.15.3",
+      "url": "https://github.com/masturbeck13/spb-roulette-tiles/releases/download/map-2026.07.15.3/spb-basemap-2026.07.15.3.pmtiles",
+      "bytes": 53559716,
+      "sha256": "79ad71bf874055e2d3444162b604f84ba62de9147958a5abeeaa4129e49f9994",
+      "sourceSnapshotAt": "2026-07-14T20:20:59.000Z",
+      "layers": [
+        "buildings",
+        "landuse",
+        "places",
+        "roads",
+        "water"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "openstreetmap",
+      "name": "OpenStreetMap",
+      "role": "дороги, здания, вода и базовые объекты",
+      "attribution": "© OpenStreetMap contributors",
+      "url": "https://www.openstreetmap.org/",
+      "licenseName": "Open Data Commons Open Database License (ODbL)",
+      "licenseUrl": "https://www.openstreetmap.org/copyright",
+      "snapshotAt": "2026-07-14T20:20:59.000Z"
+    },
+    {
+      "id": "geofabrik",
+      "name": "Geofabrik",
+      "role": "региональный extract исходных данных OpenStreetMap",
+      "attribution": "Geofabrik OpenStreetMap extract",
+      "url": "https://download.geofabrik.de/russia/northwestern-fed-district.html",
+      "licenseName": "Geofabrik download server and OSM license",
+      "licenseUrl": "https://download.geofabrik.de/",
+      "snapshotAt": "2026-07-14T20:20:59.000Z"
+    }
+  ],
+  "rollback": {},
+  "build": {
+    "profileVersion": "sr-basemap-v1",
+    "planetilerVersion": "0.10.2",
+    "pmtilesCliVersion": "1.31.1",
+    "sourcePbfUrl": "https://download.geofabrik.de/russia/northwestern-fed-district-latest.osm.pbf",
+    "region": {
+      "id": "spb-and-nearby",
+      "bbox": [
+        29.5,
+        59.7,
+        30.8,
+        60.3
+      ]
+    },
+    "zoom": {
+      "min": 1,
+      "max": 14
+    }
+  }
+}
