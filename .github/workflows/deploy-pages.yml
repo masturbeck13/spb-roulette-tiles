@@ -1,0 +1,55 @@
+name: Deploy browser-safe SPb basemap
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'map-manifest.json'
+      - 'map-manifests/**'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout catalog
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+
+      - name: Assemble current map site
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          version="$(node -p "require('./map-manifest.json').basemapVersion")"
+          archive="spb-basemap-${version}.pmtiles"
+          mkdir -p _site/maps _site/map-manifests
+          gh release download "map-${version}" --pattern "$archive" --dir _site/maps
+          cp map-manifest.json _site/map-manifest.json
+          cp map-manifests/*.json _site/map-manifests/
+          test -s "_site/maps/${archive}"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
