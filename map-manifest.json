@@ -10,7 +10,7 @@
     {
       "id": "basemap",
       "version": "2026.07.15.3",
-      "url": "https://github.com/masturbeck13/spb-roulette-tiles/releases/download/map-2026.07.15.3/spb-basemap-2026.07.15.3.pmtiles",
+      "url": "https://raw.githubusercontent.com/masturbeck13/spb-roulette-tiles/2108963e8795191a168a1e0464cc57ca667c964e/maps/spb-basemap-2026.07.15.3.pmtiles",
       "bytes": 53559716,
       "sha256": "79ad71bf874055e2d3444162b604f84ba62de9147958a5abeeaa4129e49f9994",
       "sourceSnapshotAt": "2026-07-14T20:20:59.000Z",
